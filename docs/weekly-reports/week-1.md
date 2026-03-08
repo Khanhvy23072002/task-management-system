@@ -9,7 +9,7 @@
 |------------|------|-----------|----------------|
 | Phan Khánh Vy | 2054050284| Chịu trách nhiệm xây dựng tài liệu mô tả dự án và thực hiện phân tích yêu cầu hệ thống (README.md, requirements.md) | https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/requirements.md | | https://github.com/Khanhvy23072002/task-management-system/blob/main/README.md |
 | Trịnh Chí Đông | 2351050033 | Chịu trách nhiệm xây dựng kế hoạch kiểm thử hệ thống bao gồm chiến lược và các trường hợp kiểm thử cho dự án (test-plan.md) |https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/test-plan.md|
-| Nguyễn Cao Hữu |2354050050  | Chịu trách nhiệm thiết kế cơ sở dữ liệu của hệ thống, bao gồm cấu trúc bảng và mối quan hệ giữa các bảng (database-design.md)  | |https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/database-design.md
+| Nguyễn Cao Hữu |2354050050  | Chịu trách nhiệm thiết kế cơ sở dữ liệu của hệ thống, bao gồm cấu trúc bảng và mối quan hệ giữa các bảng (database-design.md)  | | https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/database-design.md
 | Nguyễn Thụy Anh Thư |2054052066 |  Chịu trách nhiệm thiết kế wireframes (bản phác thảo giao diện) cho hệ thống, mô tả bố cục và các thành phần giao diện người dùng (wireframes.md)||
 ---
 ## 2. Tiến độ tổng thể
