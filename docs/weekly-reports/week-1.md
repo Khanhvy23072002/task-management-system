@@ -7,10 +7,10 @@
 ## 1. Công việc đã hoàn thành
 | Thành viên | MSSV | Công việc | Link Commit/PR |
 |------------|------|-----------|----------------|
-| Phan Khánh Vy | 2054050284| Chịu trách nhiệm xây dựng tài liệu mô tả dự án và thực hiện phân tích yêu cầu hệ thống (README.md, requirements.md) | https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/requirements.md | | https://github.com/Khanhvy23072002/task-management-system/blob/main/README.md |
-| Trịnh Chí Đông | 2351050033 | Chịu trách nhiệm xây dựng kế hoạch kiểm thử hệ thống bao gồm chiến lược và các trường hợp kiểm thử cho dự án (test-plan.md) |https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/test-plan.md|
-| Nguyễn Cao Hữu | 2354050050  | Chịu trách nhiệm thiết kế cơ sở dữ liệu của hệ thống, bao gồm cấu trúc bảng và mối quan hệ giữa các bảng (database-design.md)  | https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/database-design.md |
-| Nguyễn Thụy Anh Thư |2054052066 |  Chịu trách nhiệm thiết kế wireframes (bản phác thảo giao diện) cho hệ thống, mô tả bố cục và các thành phần giao diện người dùng (wireframes.md)|https://github.com/Khanhvy23072002/task-management-system/blob/main/docs/wireframes.md|
+| Phan Khánh Vy | 2054050284| Chịu trách nhiệm xây dựng tài liệu mô tả dự án và thực hiện phân tích yêu cầu hệ thống (README.md, requirements.md) | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/600b09994b0d183b257badc0c0973336c42d524d | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/712d64b246ff6fc883b5167baf49a4fc1f5669a2 |
+| Trịnh Chí Đông | 2351050033 | Chịu trách nhiệm xây dựng kế hoạch kiểm thử hệ thống bao gồm chiến lược và các trường hợp kiểm thử cho dự án (test-plan.md) | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/c2822273efc99d921f67bc2ba4aee3753cc397f2 |
+| Nguyễn Cao Hữu | 2354050050  | Chịu trách nhiệm thiết kế cơ sở dữ liệu của hệ thống, bao gồm cấu trúc bảng và mối quan hệ giữa các bảng (database-design.md)  | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/cf1b2aa9ff7ad243329e9750d8ec78ef585d824d |
+| Nguyễn Thụy Anh Thư |2054052066 |  Chịu trách nhiệm thiết kế wireframes (bản phác thảo giao diện) cho hệ thống, mô tả bố cục và các thành phần giao diện người dùng (wireframes.md)| https://github.com/Khanhvy23072002/boarding-house-management-system/commit/339894073ff097840a0f68784f35046731f73606|
 ---
 ## 2. Tiến độ tổng thể
 | Hạng mục | Trạng thái | % |
@@ -35,4 +35,4 @@
 - [ ] [Câu hỏi cần GV giải đáp nếu có]
 ---
 *Ngày nộp: 08/03/2026
-*Xác nhận của Nhóm trưởng: [Nguyễn Thụy Anh Thư]*
+*Xác nhận của Nhóm trưởng: [Phan Khánh Vy]*
