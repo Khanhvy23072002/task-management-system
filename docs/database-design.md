@@ -45,7 +45,7 @@ Database gồm các bảng chính:
 
 | password | VARCHAR(255) | NOT NULL | Mật khẩu |
 
-| role | VARCHAR(20) | NOT NULL | Vai trò |
+| role | VARCHAR(20) | NOT NULL | Vai trò (admin/manager) |
 
 ---
 
@@ -61,9 +61,9 @@ Database gồm các bảng chính:
 
 | capacity | INT | NOT NULL | Sức chứa |
 
-| price | DECIMAL | NOT NULL | Giá phòng |
+| price | DECIMAL(10,2) | NOT NULL | Giá phòng |
 
-| status | VARCHAR(20) | NOT NULL | Trạng thái |
+| status | VARCHAR(20) | NOT NULL | Trạng thái (available/occupied) |
 
 ---
 
@@ -81,7 +81,7 @@ Database gồm các bảng chính:
 
 | email | VARCHAR(100) | | Email |
 
-| room_id | BIGINT | FK | Phòng đang thuê |
+| room_id | BIGINT | FK -> rooms(id) | Phòng đang thuê |
 
 ---
 
@@ -93,9 +93,9 @@ Database gồm các bảng chính:
 
 | id | BIGINT | PK | ID hợp đồng |
 
-| tenant_id | BIGINT | FK | Người thuê |
+| tenant_id | BIGINT | FK -> tenants(id) | Người thuê |
 
-| room_id | BIGINT | FK | Phòng thuê |
+| room_id | BIGINT | FK -> rooms(id) | Phòng thuê |
 
 | start_date | DATE | NOT NULL | Ngày bắt đầu |
 
@@ -111,9 +111,9 @@ Database gồm các bảng chính:
 
 | id | BIGINT | PK | ID hóa đơn |
 
-| contract_id | BIGINT | FK | Hợp đồng |
+| contract_id | BIGINT | FK -> contracts(id) | Hợp đồng |
 
-| amount | DECIMAL | NOT NULL | Số tiền |
+| amount | DECIMAL(10,2) | NOT NULL | Số tiền |
 
 | due_date | DATE | | Hạn thanh toán |
 
@@ -129,22 +129,24 @@ Database gồm các bảng chính:
 
 | id | BIGINT | PK | ID thanh toán |
 
-| invoice_id | BIGINT | FK | Hóa đơn |
+| invoice_id | BIGINT | FK -> invoices(id) | Hóa đơn |
 
 | payment_date | DATE | NOT NULL | Ngày thanh toán |
 
-| amount | DECIMAL | NOT NULL | Số tiền |
+| amount | DECIMAL(10,2) | NOT NULL | Số tiền |
 
 ---
 
 # 4. Quan Hệ Giữa Các Bảng
 
-- Một *Room* có thể có nhiều *Tenants*
+- Một *Room* có thể có nhiều *Contracts*
 
 - Một *Tenant* có thể có nhiều *Contracts*
 
 - Một *Contract* thuộc về một *Room*
 
-- Một *Contract* có nhiều *Invoices*
+- Một *Contract* thuộc về một *Tenant*
+
+- Một *Contract* có thể có nhiều *Invoices*
 
 - Một *Invoice* có thể có nhiều *Payments*
