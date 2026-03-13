@@ -153,42 +153,42 @@ Database gồm các bảng chính:
 
 ## 5. Test Data (Sample Data)
 
-Dữ liệu mẫu dùng để kiểm thử hệ thống.
+Dữ liệu mẫu để kiểm thử hệ thống.
 
 ```sql
 -- Users
 INSERT INTO users (id, username, password, role) VALUES
-(1, 'admin', 'admin123', 'admin'),
-(2, 'manager1', 'manager123', 'manager'),
-(3, 'manager2', 'manager456', 'manager');
+(1, 'admin01', 'pass123', 'admin'),
+(2, 'quanlyA', 'abc123', 'manager'),
+(3, 'quanlyB', 'xyz789', 'manager');
 
 -- Rooms
 INSERT INTO rooms (id, room_number, capacity, price, status) VALUES
-(1, 'A101', 4, 1500000, 'available'),
-(2, 'A102', 3, 1300000, 'occupied'),
-(3, 'B201', 2, 1200000, 'available');
+(1, 'P101', 4, 1400000, 'available'),
+(2, 'P102', 3, 1350000, 'occupied'),
+(3, 'P201', 2, 1200000, 'available');
 
 -- Tenants
 INSERT INTO tenants (id, name, phone, email, room_id) VALUES
-(1, 'Nguyen Van A', '0901234567', 'a@gmail.com', 2),
-(2, 'Tran Thi B', '0912345678', 'b@gmail.com', 2),
-(3, 'Le Van C', '0923456789', 'c@gmail.com', 3);
+(1, 'Pham Minh Tuan', '0914567823', 'tuanpm@gmail.com', 2),
+(2, 'Nguyen Thi Lan', '0903345678', 'lannt@gmail.com', 2),
+(3, 'Hoang Gia Bao', '0938765432', 'baohoang@gmail.com', 3);
 
 -- Contracts
 INSERT INTO contracts (id, tenant_id, room_id, start_date, end_date) VALUES
-(1, 1, 2, '2025-01-01', '2025-12-31'),
-(2, 2, 2, '2025-02-01', '2025-12-31'),
-(3, 3, 3, '2025-03-01', '2025-09-01');
+(1, 1, 2, '2025-02-10', '2025-12-10'),
+(2, 2, 2, '2025-03-01', '2025-11-30'),
+(3, 3, 3, '2025-01-15', '2025-09-15');
 
 -- Invoices
 INSERT INTO invoices (id, contract_id, amount, due_date, status) VALUES
-(1, 1, 1500000, '2025-04-05', 'unpaid'),
-(2, 2, 1500000, '2025-04-05', 'paid'),
-(3, 3, 1200000, '2025-04-05', 'unpaid');
+(1, 1, 1350000, '2025-04-05', 'unpaid'),
+(2, 2, 1350000, '2025-04-05', 'paid'),
+(3, 3, 1200000, '2025-04-10', 'unpaid');
 
 -- Payments
 INSERT INTO payments (id, invoice_id, payment_date, amount) VALUES
-(1, 2, '2025-04-03', 1500000),
-(2, 2, '2025-04-03', 500000),
-(3, 1, '2025-04-06', 1500000);
+(1, 2, '2025-04-02', 1350000),
+(2, 1, '2025-04-06', 500000),
+(3, 3, '2025-04-09', 1200000);
 ```
