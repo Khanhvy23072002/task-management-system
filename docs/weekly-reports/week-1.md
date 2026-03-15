@@ -2,7 +2,7 @@
 **Tuần: 1 (01/03/2026- 08/03/2026)
 **Nhóm: 17
 **Đề tài: Hệ thống quản lý nhà trọ / ký túc xá
-**Nhóm trưởng:** [Nguyễn Thụy Anh Thư] - [2054052066]
+**Nhóm trưởng:** [Phan Khánh Vy] - [2054050284]
 ---
 ## 1. Công việc đã hoàn thành
 | Thành viên | MSSV | Công việc | Link Commit/PR |
