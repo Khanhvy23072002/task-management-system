@@ -7,7 +7,7 @@
 ## 1. Công việc đã hoàn thành
 | Thành viên | MSSV | Công việc | Link Commit/PR |
 |------------|------|-----------|----------------|
-| Phan Khánh Vy | 2054050284 | Phân công nhiệm vụ cho các thành viên, theo dõi tiến độ thực hiện của nhóm , kiểm tra các commit trên repository |  |
+| Phan Khánh Vy | 2054050284 | Phân công nhiệm vụ cho các thành viên, theo dõi tiến độ thực hiện của nhóm , kiểm tra các commit trên repository | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/c7690c548be896683b8bd2d2340bd55e0ddf47b7 |
 | Trịnh Chí Đông | 2351050033 | Tạo file docs/test-cases.xlsx phục vụ manual testing | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/aa5446d088b0e72c552d88a7f0712ea2c4b7cdd3 |
 | Nguyễn Cao Hữu | 2354050050  | Thêm dữ liệu test mâu (SQL INSERT) cho database trong database-design.md  | https://github.com/Khanhvy23072002/boarding-house-management-system/commit/db2b9d21e811205477725757cce3faf291efd680 |
 | Nguyễn Thụy Anh Thư | 2054052066 |  Thiết kế UI mockups cho các màn hình chính của hệ thống và lưu dưới dạng PNG trong thư mục docs/screenshots| |
