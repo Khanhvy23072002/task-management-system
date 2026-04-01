@@ -4,8 +4,6 @@ Hệ thống Quản Lý Nhà Trọ / Ký Túc Xá
 Base URL:
 http://localhost:8080
 
----
-
 ## 1. Users API
 
 ### Lấy danh sách user
@@ -28,8 +26,6 @@ PUT /users/{id}
 
 ### Xóa user
 DELETE /users/{id}
-
----
 
 ## 2. Rooms API
 
@@ -54,8 +50,6 @@ PUT /rooms/{id}
 
 ### Xóa phòng
 DELETE /rooms/{id}
-
----
 
 ## 3. Tenants API
 
@@ -83,8 +77,6 @@ PUT /tenants/{id}
 ### Xóa
 DELETE /tenants/{id}
 
----
-
 ## 4. Contracts API
 
 ### Lấy danh sách hợp đồng
@@ -108,8 +100,6 @@ PUT /contracts/{id}
 
 ### Xóa
 DELETE /contracts/{id}
-
----
 
 ## 5. Invoices API
 
@@ -135,8 +125,6 @@ PUT /invoices/{id}
 ### Xóa
 DELETE /invoices/{id}
 
----
-
 ## 6. Payments API
 
 ### Lấy danh sách thanh toán
@@ -159,8 +147,6 @@ PUT /payments/{id}
 
 ### Xóa
 DELETE /payments/{id}
-
----
 
 ## Ghi chú
 - Dữ liệu gửi lên dạng JSON
