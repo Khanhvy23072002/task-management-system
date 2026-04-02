@@ -8,7 +8,7 @@
 | Thành viên | MSSV | Công việc | Link Commit/PR |
 |------------|------|-----------|----------------|
 | Phan Khánh Vy | 2054050284 | Phân công nhiệm vụ cho các thành viên, theo dõi tiến độ thực hiện của nhóm , kiểm tra các commit trên repository | |
-| Trịnh Chí Đông | 2351050033 | Tạo test data trong docs/test-data/sample-data.md (account,room,tenant) ||
+| Trịnh Chí Đông | 2351050033 | Tạo test data trong docs/test-data/sample-data.md (account,room,tenant) |https://github.com/Khanhvy23072002/boarding-house-management-system/commit/4ed94cd90fa4d7e9af923650cd3baa36e44f4c99|
 | Nguyễn Cao Hữu | 2354050050  | Setup project Spring Boot, cấu hình MySQL, tạo structure (controller, service, repository, entity), tạo model (User, Room, Tenant, Contract, Invoice), viết API CRUD cơ bản | |
 | Nguyễn Thụy Anh Thư | 2054052066 |  Dựng project frontend, làm UI cơ bản (login, dashboard, room, tenant), chuẩn bị component | |
 ---
