@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eee;
+}
+
+/* NAV */
+.nav {
+    background: #9cc48b;
+    padding: 15px;
+    text-align: center;
+}
+
+.nav button {
+    background: #ddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* hover */
+.nav button:hover {
+    background: #ccc;
+}
+
+/* CARD */
+.card {
+    display: inline-block;
+    width: 25%;
+    background: #9cc48b;
+    padding: 30px;
+    margin: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* INPUT */
+.fake-input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+    width: 80%;
+}
+
+/* ACTIVITY */
+.activity {
+    border: 1px solid green;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+/* placeholder */
+input::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAV -->
+    <div class="nav">
+        <button><img src="logo.png" style="height:30px;"></button>
+        <button onclick="goTo('dashboard.html')" id="dashboardBtn">Bảng điều khiển</button>
+        <button onclick="goTo('room.html')" id="roomBtn">Phòng</button>
+        <button onclick="goTo('tenant.html')" id="tenantBtn">Người thuê</button>
+        <button onclick="goTo('contract.html')" id="contractBtn">Hợp đồng</button>
+        <button onclick="goTo('invoice.html')" id="invoiceBtn">Hóa đơn</button>
+    </div>
+
+    <!-- CARDS -->
+    <div style="text-align:center;">
+        <div class="card">
+            Tổng phòng<br>
+            <input id="totalRoom" class="fake-input" placeholder="">
+        </div>
+
+        <div id="occupied" class="card">
+            Đang thuê<br>
+            <input class="fake-input" placeholder="">
+        </div>
+
+        <div id="empty" class="card">
+            Phòng trống<br>
+            <input class="fake-input" placeholder="">
+        </div>
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="activity">
+        <p><b>Hoạt động gần đây:</b></p>
+
+        <input class="fake-input" placeholder="- "><br>
+        <input class="fake-input" placeholder="- "><br>
+        <input class="fake-input" placeholder="- ">
+    </div>
+
+</div>
+
+<!-- TURN -->
+ <script>
+function goTo(page) {
+    window.location.href = page;
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("http://localhost:8080/api/rooms")
+        .then(res => res.json())
+        .then(data => {
+
+            let total = data.length;
+            let occupied = data.filter(r => r.status === "occupied").length;
+            let empty = data.filter(r => r.status === "available").length;
+
+            document.getElementById("totalRoom").value = total;
+            document.getElementById("occupied").value = occupied;
+            document.getElementById("empty").value = empty;
+        })
+        .catch(err => console.log(err));
+});
+</script>
+</body>
+</html>
