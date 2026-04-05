@@ -13,18 +13,24 @@ GET /users
 Response 200 OK
 
 [
-  {
-    "id": 1,
-    "username": "admin01",
-    "password": "pass123",
-    "role": "admin"
-  },
-  {
-    "id": 2,
-    "username": "quanlyA",
-    "password": "abc123",
-    "role": "manager"
-  }
+    {
+        "id": 1,
+        "password": "pass123",
+        "role": "admin",
+        "username": "admin01"
+    },
+    {
+        "id": 2,
+        "password": "abc123",
+        "role": "manager",
+        "username": "quanlyA"
+    },
+    {
+        "id": 3,
+        "password": "xyz789",
+        "role": "manager",
+        "username": "quanlyB"
+    }
 ]
 1.2 Get user by id
 
@@ -111,20 +117,27 @@ GET /rooms
 Response 200 OK
 
 [
-  {
-    "id": 1,
-    "roomNumber": "P101",
-    "capacity": 4,
-    "price": 1400000,
-    "status": "available"
-  },
-  {
-    "id": 2,
-    "roomNumber": "P102",
-    "capacity": 3,
-    "price": 1350000,
-    "status": "occupied"
-  }
+    {
+        "capacity": 4,
+        "id": 1,
+        "price": 1400000.0,
+        "roomNumber": "P101",
+        "status": "available"
+    },
+    {
+        "capacity": 3,
+        "id": 2,
+        "price": 1350000.0,
+        "roomNumber": "P102",
+        "status": "occupied"
+    },
+    {
+        "capacity": 2,
+        "id": 3,
+        "price": 1200000.0,
+        "roomNumber": "P201",
+        "status": "available"
+    }
 ]
 2.2 Get room by id
 
@@ -135,11 +148,11 @@ GET /rooms/{id}
 Response 200 OK
 
 {
-  "id": 1,
-  "roomNumber": "P101",
-  "capacity": 4,
-  "price": 1400000,
-  "status": "available"
+    "capacity": 4,
+    "id": 1,
+    "price": 1400000.0,
+    "roomNumber": "P101",
+    "status": "available"
 }
 2.3 Create room
 
@@ -159,7 +172,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "roomNumber": "P202",
   "capacity": 3,
   "price": 1500000,
@@ -183,7 +196,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "roomNumber": "P202",
   "capacity": 4,
   "price": 1600000,
@@ -207,24 +220,45 @@ GET /tenants
 Response 200 OK
 
 [
-  {
-    "id": 1,
-    "name": "Pham Minh Tuan",
-    "phone": "0914567823",
-    "email": "tuanpm@gmail.com",
-    "room": {
-      "id": 2
+    {
+        "email": "tuanpm@gmail.com",
+        "id": 1,
+        "name": "Pham Minh Tuan",
+        "phone": "0914567823",
+        "room": {
+            "capacity": 3,
+            "id": 2,
+            "price": 1350000.0,
+            "roomNumber": "P102",
+            "status": "occupied"
+        }
+    },
+    {
+        "email": "lannt@gmail.com",
+        "id": 2,
+        "name": "Nguyen Thi Lan",
+        "phone": "0903345678",
+        "room": {
+            "capacity": 3,
+            "id": 2,
+            "price": 1350000.0,
+            "roomNumber": "P102",
+            "status": "occupied"
+        }
+    },
+    {
+        "email": "baohoang@gmail.com",
+        "id": 3,
+        "name": "Hoang Gia Bao",
+        "phone": "0938765432",
+        "room": {
+            "capacity": 2,
+            "id": 3,
+            "price": 1200000.0,
+            "roomNumber": "P201",
+            "status": "available"
+        }
     }
-  },
-  {
-    "id": 2,
-    "name": "Nguyen Thi Lan",
-    "phone": "0903345678",
-    "email": "lannt@gmail.com",
-    "room": {
-      "id": 2
-    }
-  }
 ]
 3.2 Get tenant by id
 
@@ -235,13 +269,17 @@ GET /tenants/{id}
 Response 200 OK
 
 {
-  "id": 1,
-  "name": "Pham Minh Tuan",
-  "phone": "0914567823",
-  "email": "tuanpm@gmail.com",
-  "room": {
-    "id": 2
-  }
+    "email": "tuanpm@gmail.com",
+    "id": 1,
+    "name": "Pham Minh Tuan",
+    "phone": "0914567823",
+    "room": {
+        "capacity": 3,
+        "id": 2,
+        "price": 1350000.0,
+        "roomNumber": "P102",
+        "status": "occupied"
+    }
 }
 3.3 Create tenant
 
@@ -263,7 +301,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "name": "Le Van A",
   "phone": "0987654321",
   "email": "a@gmail.com",
@@ -291,7 +329,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "name": "Le Van A Updated",
   "phone": "0987654321",
   "email": "a.updated@gmail.com",
@@ -317,17 +355,81 @@ GET /contracts
 Response 200 OK
 
 [
-  {
-    "id": 1,
-    "tenant": {
-      "id": 1
+    {
+        "endDate": "2025-12-10",
+        "id": 1,
+        "room": {
+            "capacity": 3,
+            "id": 2,
+            "price": 1350000.0,
+            "roomNumber": "P102",
+            "status": "occupied"
+        },
+        "startDate": "2025-02-10",
+        "tenant": {
+            "email": "tuanpm@gmail.com",
+            "id": 1,
+            "name": "Pham Minh Tuan",
+            "phone": "0914567823",
+            "room": {
+                "capacity": 3,
+                "id": 2,
+                "price": 1350000.0,
+                "roomNumber": "P102",
+                "status": "occupied"
+            }
+        }
     },
-    "room": {
-      "id": 2
+    {
+        "endDate": "2025-11-30",
+        "id": 2,
+        "room": {
+            "capacity": 3,
+            "id": 2,
+            "price": 1350000.0,
+            "roomNumber": "P102",
+            "status": "occupied"
+        },
+        "startDate": "2025-03-01",
+        "tenant": {
+            "email": "lannt@gmail.com",
+            "id": 2,
+            "name": "Nguyen Thi Lan",
+            "phone": "0903345678",
+            "room": {
+                "capacity": 3,
+                "id": 2,
+                "price": 1350000.0,
+                "roomNumber": "P102",
+                "status": "occupied"
+            }
+        }
     },
-    "startDate": "2025-02-10",
-    "endDate": "2025-12-10"
-  }
+    {
+        "endDate": "2025-09-15",
+        "id": 3,
+        "room": {
+            "capacity": 2,
+            "id": 3,
+            "price": 1200000.0,
+            "roomNumber": "P201",
+            "status": "available"
+        },
+        "startDate": "2025-01-15",
+        "tenant": {
+            "email": "baohoang@gmail.com",
+            "id": 3,
+            "name": "Hoang Gia Bao",
+            "phone": "0938765432",
+            "room": {
+                "capacity": 2,
+                "id": 3,
+                "price": 1200000.0,
+                "roomNumber": "P201",
+                "status": "available"
+            }
+        }
+    }
 ]
 4.2 Get contract by id
 
@@ -338,15 +440,29 @@ GET /contracts/{id}
 Response 200 OK
 
 {
-  "id": 1,
-  "tenant": {
-    "id": 1
-  },
-  "room": {
-    "id": 2
-  },
-  "startDate": "2025-02-10",
-  "endDate": "2025-12-10"
+    "endDate": "2025-12-10",
+    "id": 1,
+    "room": {
+        "capacity": 3,
+        "id": 2,
+        "price": 1350000.0,
+        "roomNumber": "P102",
+        "status": "occupied"
+    },
+    "startDate": "2025-02-10",
+    "tenant": {
+        "email": "tuanpm@gmail.com",
+        "id": 1,
+        "name": "Pham Minh Tuan",
+        "phone": "0914567823",
+        "room": {
+            "capacity": 3,
+            "id": 2,
+            "price": 1350000.0,
+            "roomNumber": "P102",
+            "status": "occupied"
+        }
+    }
 }
 4.3 Create contract
 
@@ -370,7 +486,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "tenant": {
     "id": 1
   },
@@ -402,7 +518,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "tenant": {
     "id": 2
   },
@@ -430,15 +546,99 @@ GET /invoices
 Response 200 OK
 
 [
-  {
-    "id": 1,
-    "contract": {
-      "id": 1
+    {
+        "amount": 1350000.0,
+        "contract": {
+            "endDate": "2025-12-10",
+            "id": 1,
+            "room": {
+                "capacity": 3,
+                "id": 2,
+                "price": 1350000.0,
+                "roomNumber": "P102",
+                "status": "occupied"
+            },
+            "startDate": "2025-02-10",
+            "tenant": {
+                "email": "tuanpm@gmail.com",
+                "id": 1,
+                "name": "Pham Minh Tuan",
+                "phone": "0914567823",
+                "room": {
+                    "capacity": 3,
+                    "id": 2,
+                    "price": 1350000.0,
+                    "roomNumber": "P102",
+                    "status": "occupied"
+                }
+            }
+        },
+        "dueDate": "2025-04-05",
+        "id": 1,
+        "status": "unpaid"
     },
-    "amount": 1350000,
-    "dueDate": "2025-04-05",
-    "status": "unpaid"
-  }
+    {
+        "amount": 1350000.0,
+        "contract": {
+            "endDate": "2025-11-30",
+            "id": 2,
+            "room": {
+                "capacity": 3,
+                "id": 2,
+                "price": 1350000.0,
+                "roomNumber": "P102",
+                "status": "occupied"
+            },
+            "startDate": "2025-03-01",
+            "tenant": {
+                "email": "lannt@gmail.com",
+                "id": 2,
+                "name": "Nguyen Thi Lan",
+                "phone": "0903345678",
+                "room": {
+                    "capacity": 3,
+                    "id": 2,
+                    "price": 1350000.0,
+                    "roomNumber": "P102",
+                    "status": "occupied"
+                }
+            }
+        },
+        "dueDate": "2025-04-05",
+        "id": 2,
+        "status": "paid"
+    },
+    {
+        "amount": 1200000.0,
+        "contract": {
+            "endDate": "2025-09-15",
+            "id": 3,
+            "room": {
+                "capacity": 2,
+                "id": 3,
+                "price": 1200000.0,
+                "roomNumber": "P201",
+                "status": "available"
+            },
+            "startDate": "2025-01-15",
+            "tenant": {
+                "email": "baohoang@gmail.com",
+                "id": 3,
+                "name": "Hoang Gia Bao",
+                "phone": "0938765432",
+                "room": {
+                    "capacity": 2,
+                    "id": 3,
+                    "price": 1200000.0,
+                    "roomNumber": "P201",
+                    "status": "available"
+                }
+            }
+        },
+        "dueDate": "2025-04-10",
+        "id": 3,
+        "status": "unpaid"
+    }
 ]
 5.2 Get invoice by id
 
@@ -449,13 +649,35 @@ GET /invoices/{id}
 Response 200 OK
 
 {
-  "id": 1,
-  "contract": {
-    "id": 1
-  },
-  "amount": 1350000,
-  "dueDate": "2025-04-05",
-  "status": "unpaid"
+    "amount": 1350000.0,
+    "contract": {
+        "endDate": "2025-12-10",
+        "id": 1,
+        "room": {
+            "capacity": 3,
+            "id": 2,
+            "price": 1350000.0,
+            "roomNumber": "P102",
+            "status": "occupied"
+        },
+        "startDate": "2025-02-10",
+        "tenant": {
+            "email": "tuanpm@gmail.com",
+            "id": 1,
+            "name": "Pham Minh Tuan",
+            "phone": "0914567823",
+            "room": {
+                "capacity": 3,
+                "id": 2,
+                "price": 1350000.0,
+                "roomNumber": "P102",
+                "status": "occupied"
+            }
+        }
+    },
+    "dueDate": "2025-04-05",
+    "id": 1,
+    "status": "unpaid"
 }
 5.3 Create invoice
 
@@ -477,7 +699,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "contract": {
     "id": 1
   },
@@ -505,7 +727,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "contract": {
     "id": 2
   },
@@ -531,14 +753,114 @@ GET /payments
 Response 200 OK
 
 [
-  {
-    "id": 1,
-    "invoice": {
-      "id": 2
+    {
+        "amount": 1350000.0,
+        "id": 1,
+        "invoice": {
+            "amount": 1350000.0,
+            "contract": {
+                "endDate": "2025-11-30",
+                "id": 2,
+                "room": {
+                    "capacity": 3,
+                    "id": 2,
+                    "price": 1350000.0,
+                    "roomNumber": "P102",
+                    "status": "occupied"
+                },
+                "startDate": "2025-03-01",
+                "tenant": {
+                    "email": "lannt@gmail.com",
+                    "id": 2,
+                    "name": "Nguyen Thi Lan",
+                    "phone": "0903345678",
+                    "room": {
+                        "capacity": 3,
+                        "id": 2,
+                        "price": 1350000.0,
+                        "roomNumber": "P102",
+                        "status": "occupied"
+                    }
+                }
+            },
+            "dueDate": "2025-04-05",
+            "id": 2,
+            "status": "paid"
+        },
+        "paymentDate": "2025-04-02"
     },
-    "paymentDate": "2025-04-02",
-    "amount": 1350000
-  }
+    {
+        "amount": 500000.0,
+        "id": 2,
+        "invoice": {
+            "amount": 1350000.0,
+            "contract": {
+                "endDate": "2025-12-10",
+                "id": 1,
+                "room": {
+                    "capacity": 3,
+                    "id": 2,
+                    "price": 1350000.0,
+                    "roomNumber": "P102",
+                    "status": "occupied"
+                },
+                "startDate": "2025-02-10",
+                "tenant": {
+                    "email": "tuanpm@gmail.com",
+                    "id": 1,
+                    "name": "Pham Minh Tuan",
+                    "phone": "0914567823",
+                    "room": {
+                        "capacity": 3,
+                        "id": 2,
+                        "price": 1350000.0,
+                        "roomNumber": "P102",
+                        "status": "occupied"
+                    }
+                }
+            },
+            "dueDate": "2025-04-05",
+            "id": 1,
+            "status": "unpaid"
+        },
+        "paymentDate": "2025-04-06"
+    },
+    {
+        "amount": 1200000.0,
+        "id": 3,
+        "invoice": {
+            "amount": 1200000.0,
+            "contract": {
+                "endDate": "2025-09-15",
+                "id": 3,
+                "room": {
+                    "capacity": 2,
+                    "id": 3,
+                    "price": 1200000.0,
+                    "roomNumber": "P201",
+                    "status": "available"
+                },
+                "startDate": "2025-01-15",
+                "tenant": {
+                    "email": "baohoang@gmail.com",
+                    "id": 3,
+                    "name": "Hoang Gia Bao",
+                    "phone": "0938765432",
+                    "room": {
+                        "capacity": 2,
+                        "id": 3,
+                        "price": 1200000.0,
+                        "roomNumber": "P201",
+                        "status": "available"
+                    }
+                }
+            },
+            "dueDate": "2025-04-10",
+            "id": 3,
+            "status": "unpaid"
+        },
+        "paymentDate": "2025-04-09"
+    }
 ]
 6.2 Get payment by id
 
@@ -549,12 +871,40 @@ GET /payments/{id}
 Response 200 OK
 
 {
-  "id": 1,
-  "invoice": {
-    "id": 2
-  },
-  "paymentDate": "2025-04-02",
-  "amount": 1350000
+    "amount": 1350000.0,
+    "id": 1,
+    "invoice": {
+        "amount": 1350000.0,
+        "contract": {
+            "endDate": "2025-11-30",
+            "id": 2,
+            "room": {
+                "capacity": 3,
+                "id": 2,
+                "price": 1350000.0,
+                "roomNumber": "P102",
+                "status": "occupied"
+            },
+            "startDate": "2025-03-01",
+            "tenant": {
+                "email": "lannt@gmail.com",
+                "id": 2,
+                "name": "Nguyen Thi Lan",
+                "phone": "0903345678",
+                "room": {
+                    "capacity": 3,
+                    "id": 2,
+                    "price": 1350000.0,
+                    "roomNumber": "P102",
+                    "status": "occupied"
+                }
+            }
+        },
+        "dueDate": "2025-04-05",
+        "id": 2,
+        "status": "paid"
+    },
+    "paymentDate": "2025-04-02"
 }
 6.3 Create payment
 
@@ -575,7 +925,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "invoice": {
     "id": 1
   },
@@ -601,7 +951,7 @@ Request Body
 Response 200 OK
 
 {
-  "id": 3,
+  "id": 4,
   "invoice": {
     "id": 2
   },
