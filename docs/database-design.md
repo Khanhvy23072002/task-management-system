@@ -39,7 +39,7 @@ Database gồm các bảng chính:
 
 |------|------|------|------|
 
-| id | BIGINT | PK, AUTO_INCREMENT | ID người dùng |
+| id | BIGSERIAL | PRIMARY KEY | ID người dùng |
 
 | username | VARCHAR(50) | NOT NULL, UNIQUE | Tên đăng nhập |
 
@@ -57,7 +57,7 @@ Database gồm các bảng chính:
 
 | id | BIGINT | PK | ID phòng |
 
-| room_number | VARCHAR(10) | NOT NULL | Số phòng |
+| room_number | VARCHAR(10) | NOT NULL, UNIQUE | Số phòng |
 
 | capacity | INT | NOT NULL | Sức chứa |
 
@@ -77,7 +77,7 @@ Database gồm các bảng chính:
 
 | name | VARCHAR(100) | NOT NULL | Tên người thuê |
 
-| phone | VARCHAR(15) | | Số điện thoại |
+| phone | VARCHAR(15) | NULL | Số điện thoại |
 
 | email | VARCHAR(100) | | Email |
 
