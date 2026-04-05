@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eee;
+    text-align: center;
+}
+
+/* NAV */
+.nav {
+    background: #9cc48b;
+    padding: 15px;
+}
+
+.nav button {
+    background: #ddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.nav button:hover {
+    background: #ccc;
+}
+
+
+/* BOX */
+.box {
+    display: inline-block;
+    width: 200px;
+    height: 120px;
+    background: #9cc48b;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+/* INPUT */
+.fake-input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    outline: none;
+}
+
+/* ACTIVITY */
+.activity {
+    width: 70%;
+    margin: 30px auto;
+    border: 1px solid green;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
+}
+</style>
+
+</head>
+
+<body>
+
+<div>
+    <!-- NAV -->
+    <div class="nav">
+        <button>Logo</button>
+        <button class="active" onclick="goDashboard()">Bảng điều khiển</button>
+        <button onclick="goContract()">Hợp đồng</button>
+        <button onclick="goInvoice()">Hóa đơn</button>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div>
+
+        <div class="box">
+            <p>Tổng phòng</p>
+            <input class="fake-input" id="totalRoom" readonly>
+        </div>
+
+        <div class="box">
+            <p>Đang thuê</p>
+            <input class="fake-input" id="rented" readonly>
+        </div>
+
+        <div class="box">
+            <p>Phòng trống</p>
+            <input class="fake-input" id="empty" readonly>
+        </div>
+
+    </div>
+
+    <!-- ACTIVITY -->
+    <div class="activity">
+        <b>Hoạt động gần đây:</b>
+        <ul id="activityList"></ul>
+    </div>
+</div>
+
+<script>
+
+/* LOAD DATA FROM ADMIN */
+document.getElementById("totalRoom").value =
+    localStorage.getItem("totalRoom") || "";
+
+document.getElementById("rented").value =
+    localStorage.getItem("rented") || "";
+
+document.getElementById("empty").value =
+    localStorage.getItem("empty") || "";
+
+/* USER ACTIVITY */
+let activities = JSON.parse(localStorage.getItem("userActivity")) || [];
+
+let list = document.getElementById("activityList");
+activities.forEach(function(act) {
+    let li = document.createElement("li");
+    li.innerText = act;
+    list.appendChild(li);
+});
+
+/* NAVIGATION */
+function goDashboard() {
+    window.location.href = "user_dashboard.html";
+}
+
+function goContract() {
+    window.location.href = "user_contract.html";
+}
+
+function goInvoice() {
+    window.location.href = "user_invoice.html";
+}
+
+</script>
+
+</body>
+</html>

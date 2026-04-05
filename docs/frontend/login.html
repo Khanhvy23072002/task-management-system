@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eee;
+    text-align: center;
+}
+
+/* BOX */
+.container {
+    border: 1px solid black;
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* HEADER */
+.header {
+    background: #9cc48b;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* ROLE */
+.role {
+    margin: 15px 0;
+}
+
+/* INPUT */
+.input-box {
+    width: 60%;
+    margin: 10px auto;
+}
+
+.input-box label {
+    display: block;
+    background: #4f73b7;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #c0c6d6;
+}
+
+/* BUTTON */
+.login-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background: #7da3c7;
+    border: none;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background: #5b8bb5;
+}
+
+.forgot-btn {
+    margin-top: 10px;
+    padding: 8px 20px;
+    background: #eee;
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+.register-text {
+    margin-top: 15px;
+}
+
+.register-text a {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register-text a:hover {
+    color: darkred;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        HỆ THỐNG QUẢN LÝ NHÀ TRỌ/KÝ TÚC XÁ
+    </div>
+
+    <!-- ROLE -->
+    <div class="role">
+        <p>Bạn là người dùng / quản trị?</p>
+
+        <input type="radio" name="role" value="user"> Người dùng (User)
+        <br>
+        <input type="radio" name="role" value="admin"> Người quản trị (Admin)
+    </div>
+
+    <!-- USERNAME -->
+    <div class="input-box">
+        <label>Tên đăng nhập</label>
+        <input type="text" id="username">
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="input-box">
+        <label>Mật khẩu</label>
+        <input type="password" id="password">
+    </div>
+
+    <!-- LOGIN -->
+    <button class="login-btn" onclick="login()">Đăng nhập</button>
+    <br>
+    <button class="forgot-btn">Quên mật khẩu?</button>
+
+    <!-- FORGOT PASSWORD -->
+    <p class="register-text">
+    Bạn chưa có tài khoản? 
+    <a href="register.html">Đăng ký ngay</a>
+    </p>
+
+</div>
+
+<script>
+function login() {
+    let role = document.querySelector('input[name="role"]:checked');
+
+    if (!role) {
+        alert("Vui lòng chọn User hoặc Admin");
+        return;
+    }
+
+    if (role.value === "admin") {
+        // 👉 ADMIN → vào dashboard
+        window.location.href = "dashboard.html";
+    } else {
+        // 👉 USER → vào trang user (chưa làm)
+        window.location.href = "user.html";
+    }
+}
+</script>
+
+</body>
+</html>

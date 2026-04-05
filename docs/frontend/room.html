@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Room</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eee;
+}
+
+/* NAV */
+.nav {
+    background: #9cc48b;
+    padding: 15px;
+    text-align: center;
+}
+
+.nav button {
+    background: #ddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* hover */
+.nav button:hover {
+    background: #ccc;
+}
+
+/* TITLE */
+.title-box {
+    border: 1px solid green;
+    display: inline-block;
+    padding: 10px 40px;
+    margin: 20px;
+}
+
+/* ACTION BUTTON */
+.action-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px 60px;
+    background: #9cc48b;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background: #00a600;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+th {
+    background: #6ea84f;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+td {
+    background: #d9e3d0;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* INPUT */
+.fake-input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    width: 100%;
+    outline: none;
+}
+
+/* ADD ROW BUTTON */
+.add-row-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #6ea84f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    
+    <!-- NAV -->
+    <div class="nav">
+        <button><img src="logo.png" style="height:30px;"></button>
+        <button onclick="goTo('dashboard.html')" id="dashboardBtn">Bảng điều khiển</button>
+        <button onclick="goTo('room.html')" id="roomBtn">Phòng</button>
+        <button onclick="goTo('tenant.html')" id="tenantBtn">Người thuê</button>
+        <button onclick="goTo('contract.html')" id="contractBtn">Hợp đồng</button>
+        <button onclick="goTo('invoice.html')" id="invoiceBtn">Hóa đơn</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title-box">QUẢN LÝ PHÒNG</div>
+
+    <br>
+
+    <!-- ACTION -->
+    <button class="action-btn" onclick="searchRoom()">Tìm phòng</button>
+
+    <input type="text" id="searchRoom" placeholder="Nhập số phòng...">
+
+    <!-- TABLE -->
+    <table id="roomTable">
+    <tr>
+        <th>Phòng</th>
+        <th>Sức chứa</th>
+        <th>Người đang ở</th>
+        <th>Trạng thái</th>
+        <th>Sửa</th>
+    </tr>
+
+    <tr>
+        <td><input class="fake-input"></td>
+        <td><input class="fake-input"></td>
+        <td><input class="fake-input"></td>
+        <td><input class="fake-input"></td>
+        <td><input class="fake-input"></td>
+    </tr>
+    </table>
+
+    <!-- ADD BUTTON -->
+    <button class="add-row-btn" onclick="addRow()">Thêm</button>
+</div>
+
+<!-- ADD ROW -->
+<script>
+function addRow() {
+    let table = document.getElementById("roomTable");
+    let row = table.insertRow();
+
+    for (let i = 0; i < 5; i++) {
+        let cell = row.insertCell();
+        cell.innerHTML = '<input class="fake-input">';
+    }
+}
+</script>
+
+<!-- SEARCH ROOM -->
+<script>
+function searchRoom() {
+    let input = document.getElementById("searchRoom").value.toLowerCase();
+    let rows = document.querySelectorAll("#roomTable tr");
+
+    for (let i = 1; i < rows.length; i++) {
+
+        // Lấy input trong cột đầu tiên
+        let roomInput = rows[i].cells[0].querySelector("input");
+        let room = roomInput.value.toLowerCase();
+
+        if (room.includes(input) && room !== "") {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+<!-- TURN -->
+ <script>
+function goTo(page) {
+    window.location.href = page;
+}
+</script>
+
+</body>
+</html>
