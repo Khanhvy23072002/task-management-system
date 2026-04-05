@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Contract</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eee;
+}
+
+/* NAV */
+.nav {
+    background: #9cc48b;
+    padding: 15px;
+    text-align: center;
+}
+
+.nav button {
+    background: #ddd;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* hover */
+.nav button:hover {
+    background: #ccc;
+}
+
+/* TITLE */
+.title-box {
+    border: 1px solid green;
+    display: inline-block;
+    padding: 10px 40px;
+    margin: 20px;
+}
+
+/* CREATE */
+.action-btn {
+    display: block;
+    margin: 20px;
+    padding: 20px 60px;
+    background: #9cc48b;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background: #6ea84f;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+}
+
+th {
+    background: #6ea84f;
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+td {
+    background: #d9e3d0;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+/* INPUT */
+.fake-input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    width: 100%;
+    outline: none;
+}
+
+/* ADD ROW BUTTON */
+.add-row-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #9cc48b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* placeholder */
+input::placeholder {
+    color: black;
+    opacity: 1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- NAV -->
+    <div class="nav">
+        <button><img src="logo.png" style="height:30px;"></button>
+        <button onclick="goTo('dashboard.html')" id="dashboardBtn">Bảng điều khiển</button>
+        <button onclick="goTo('room.html')" id="roomBtn">Phòng</button>
+        <button onclick="goTo('tenant.html')" id="tenantBtn">Người thuê</button>
+        <button onclick="goTo('contract.html')" id="contractBtn">Hợp đồng</button>
+        <button onclick="goTo('invoice.html')" id="invoiceBtn">Hóa đơn</button>
+    </div>
+
+    <!-- TITLE -->
+    <div class="title-box">
+        QUẢN LÝ HỢP ĐỒNG
+    </div>
+
+    <!-- CREATE -->
+    <button class="action-btn" onclick="goToCreateContract()">Thêm hợp đồng</button>
+
+    <!-- TABLE -->
+    <table id="contractTable">
+        <tr>
+            <th>Người thuê</th>
+            <th>Phòng</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+        </tr>
+
+        <tr>
+            <td><input class="fake-input"></td>
+            <td><input class="fake-input"></td>
+            <td><input class="fake-input"></td>
+            <td><input class="fake-input"></td>
+        </tr>
+
+        <tr>
+            <td><input class="fake-input"></td>
+            <td><input class="fake-input"></td>
+            <td><input class="fake-input"></td>
+            <td><input class="fake-input"></td>
+        </tr>
+
+    </table>
+
+    <!-- ADD ROW -->
+    <button class="add-row-btn" onclick="addContractRow()">Thêm</button>
+
+</div>
+
+
+<!-- ADD ROW -->
+<script>
+function addContractRow() {
+    let table = document.getElementById("contractTable");
+    let row = table.insertRow();
+
+    for (let i = 0; i < 4; i++) {
+        let cell = row.insertCell();
+        cell.innerHTML = '<input class="fake-input">';
+    }
+}
+</script>
+
+<!-- CREATE CONTRACT -->
+<script>
+function goToCreateContract() {
+    window.location.href = "create-contract.html";
+}
+</script>
+
+<!-- TURN -->
+ <script>
+function goTo(page) {
+    window.location.href = page;
+}
+</script>
+
+</body>
+</html>
