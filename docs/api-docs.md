@@ -1,154 +1,625 @@
-# API Documentation
-Hệ thống Quản Lý Nhà Trọ / Ký Túc Xá
+# API Documentation – Dorm Management System
 
-Base URL:
-http://localhost:8080
+## Base URL
+```text
+http://localhost:8080/api
+1. Users API
+1.1 Get all users
 
-## 1. Users API
+Endpoint
 
-### Lấy danh sách user
 GET /users
 
-### Lấy user theo id
+Response 200 OK
+
+[
+  {
+    "id": 1,
+    "username": "admin01",
+    "password": "pass123",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "username": "quanlyA",
+    "password": "abc123",
+    "role": "manager"
+  }
+]
+1.2 Get user by id
+
+Endpoint
+
 GET /users/{id}
 
-### Tạo user
-POST /users  
-Body:
+Response 200 OK
+
 {
+  "id": 1,
   "username": "admin01",
-  "password": "123456",
+  "password": "pass123",
   "role": "admin"
 }
 
-### Cập nhật user
+Response 404 Not Found
+
+{
+  "timestamp": "2025-04-01T10:00:00",
+  "status": 404,
+  "error": "Not Found",
+  "path": "/api/users/99"
+}
+1.3 Create user
+
+Endpoint
+
+POST /users
+
+Request Body
+
+{
+  "username": "newuser",
+  "password": "123456",
+  "role": "manager"
+}
+
+Response 200 OK
+
+{
+  "id": 3,
+  "username": "newuser",
+  "password": "123456",
+  "role": "manager"
+}
+1.4 Update user
+
+Endpoint
+
 PUT /users/{id}
 
-### Xóa user
+Request Body
+
+{
+  "username": "admin02",
+  "password": "999999",
+  "role": "admin"
+}
+
+Response 200 OK
+
+{
+  "id": 1,
+  "username": "admin02",
+  "password": "999999",
+  "role": "admin"
+}
+1.5 Delete user
+
+Endpoint
+
 DELETE /users/{id}
 
-## 2. Rooms API
+Response 204 No Content
 
-### Lấy danh sách phòng
+2. Rooms API
+2.1 Get all rooms
+
+Endpoint
+
 GET /rooms
 
-### Lấy phòng theo id
+Response 200 OK
+
+[
+  {
+    "id": 1,
+    "roomNumber": "P101",
+    "capacity": 4,
+    "price": 1400000,
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "roomNumber": "P102",
+    "capacity": 3,
+    "price": 1350000,
+    "status": "occupied"
+  }
+]
+2.2 Get room by id
+
+Endpoint
+
 GET /rooms/{id}
 
-### Tạo phòng
-POST /rooms  
-Body:
+Response 200 OK
+
 {
-  "roomNumber": "A101",
+  "id": 1,
+  "roomNumber": "P101",
   "capacity": 4,
+  "price": 1400000,
+  "status": "available"
+}
+2.3 Create room
+
+Endpoint
+
+POST /rooms
+
+Request Body
+
+{
+  "roomNumber": "P202",
+  "capacity": 3,
   "price": 1500000,
   "status": "available"
 }
 
-### Cập nhật phòng
+Response 200 OK
+
+{
+  "id": 3,
+  "roomNumber": "P202",
+  "capacity": 3,
+  "price": 1500000,
+  "status": "available"
+}
+2.4 Update room
+
+Endpoint
+
 PUT /rooms/{id}
 
-### Xóa phòng
+Request Body
+
+{
+  "roomNumber": "P202",
+  "capacity": 4,
+  "price": 1600000,
+  "status": "occupied"
+}
+
+Response 200 OK
+
+{
+  "id": 3,
+  "roomNumber": "P202",
+  "capacity": 4,
+  "price": 1600000,
+  "status": "occupied"
+}
+2.5 Delete room
+
+Endpoint
+
 DELETE /rooms/{id}
 
-## 3. Tenants API
+Response 204 No Content
 
-### Lấy danh sách người thuê
+3. Tenants API
+3.1 Get all tenants
+
+Endpoint
+
 GET /tenants
 
-### Lấy theo id
+Response 200 OK
+
+[
+  {
+    "id": 1,
+    "name": "Pham Minh Tuan",
+    "phone": "0914567823",
+    "email": "tuanpm@gmail.com",
+    "room": {
+      "id": 2
+    }
+  },
+  {
+    "id": 2,
+    "name": "Nguyen Thi Lan",
+    "phone": "0903345678",
+    "email": "lannt@gmail.com",
+    "room": {
+      "id": 2
+    }
+  }
+]
+3.2 Get tenant by id
+
+Endpoint
+
 GET /tenants/{id}
 
-### Tạo người thuê
-POST /tenants  
-Body:
+Response 200 OK
+
 {
-  "name": "Nguyen Van A",
-  "phone": "0901234567",
+  "id": 1,
+  "name": "Pham Minh Tuan",
+  "phone": "0914567823",
+  "email": "tuanpm@gmail.com",
+  "room": {
+    "id": 2
+  }
+}
+3.3 Create tenant
+
+Endpoint
+
+POST /tenants
+
+Request Body
+
+{
+  "name": "Le Van A",
+  "phone": "0987654321",
   "email": "a@gmail.com",
   "room": {
     "id": 1
   }
 }
 
-### Cập nhật
+Response 200 OK
+
+{
+  "id": 3,
+  "name": "Le Van A",
+  "phone": "0987654321",
+  "email": "a@gmail.com",
+  "room": {
+    "id": 1
+  }
+}
+3.4 Update tenant
+
+Endpoint
+
 PUT /tenants/{id}
 
-### Xóa
-DELETE /tenants/{id}
+Request Body
 
-## 4. Contracts API
-
-### Lấy danh sách hợp đồng
-GET /contracts
-
-### Lấy theo id
-GET /contracts/{id}
-
-### Tạo hợp đồng
-POST /contracts  
-Body:
 {
-  "tenant": { "id": 1 },
-  "room": { "id": 1 },
-  "startDate": "2026-01-01",
-  "endDate": "2026-12-31"
+  "name": "Le Van A Updated",
+  "phone": "0987654321",
+  "email": "a.updated@gmail.com",
+  "room": {
+    "id": 3
+  }
 }
 
-### Cập nhật
+Response 200 OK
+
+{
+  "id": 3,
+  "name": "Le Van A Updated",
+  "phone": "0987654321",
+  "email": "a.updated@gmail.com",
+  "room": {
+    "id": 3
+  }
+}
+3.5 Delete tenant
+
+Endpoint
+
+DELETE /tenants/{id}
+
+Response 204 No Content
+
+4. Contracts API
+4.1 Get all contracts
+
+Endpoint
+
+GET /contracts
+
+Response 200 OK
+
+[
+  {
+    "id": 1,
+    "tenant": {
+      "id": 1
+    },
+    "room": {
+      "id": 2
+    },
+    "startDate": "2025-02-10",
+    "endDate": "2025-12-10"
+  }
+]
+4.2 Get contract by id
+
+Endpoint
+
+GET /contracts/{id}
+
+Response 200 OK
+
+{
+  "id": 1,
+  "tenant": {
+    "id": 1
+  },
+  "room": {
+    "id": 2
+  },
+  "startDate": "2025-02-10",
+  "endDate": "2025-12-10"
+}
+4.3 Create contract
+
+Endpoint
+
+POST /contracts
+
+Request Body
+
+{
+  "tenant": {
+    "id": 1
+  },
+  "room": {
+    "id": 2
+  },
+  "startDate": "2025-04-01",
+  "endDate": "2025-12-31"
+}
+
+Response 200 OK
+
+{
+  "id": 3,
+  "tenant": {
+    "id": 1
+  },
+  "room": {
+    "id": 2
+  },
+  "startDate": "2025-04-01",
+  "endDate": "2025-12-31"
+}
+4.4 Update contract
+
+Endpoint
+
 PUT /contracts/{id}
 
-### Xóa
+Request Body
+
+{
+  "tenant": {
+    "id": 2
+  },
+  "room": {
+    "id": 3
+  },
+  "startDate": "2025-05-01",
+  "endDate": "2025-12-31"
+}
+
+Response 200 OK
+
+{
+  "id": 3,
+  "tenant": {
+    "id": 2
+  },
+  "room": {
+    "id": 3
+  },
+  "startDate": "2025-05-01",
+  "endDate": "2025-12-31"
+}
+4.5 Delete contract
+
+Endpoint
+
 DELETE /contracts/{id}
 
-## 5. Invoices API
+Response 204 No Content
 
-### Lấy danh sách hóa đơn
+5. Invoices API
+5.1 Get all invoices
+
+Endpoint
+
 GET /invoices
 
-### Lấy theo id
+Response 200 OK
+
+[
+  {
+    "id": 1,
+    "contract": {
+      "id": 1
+    },
+    "amount": 1350000,
+    "dueDate": "2025-04-05",
+    "status": "unpaid"
+  }
+]
+5.2 Get invoice by id
+
+Endpoint
+
 GET /invoices/{id}
 
-### Tạo hóa đơn
-POST /invoices  
-Body:
+Response 200 OK
+
 {
-  "contract": { "id": 1 },
+  "id": 1,
+  "contract": {
+    "id": 1
+  },
+  "amount": 1350000,
+  "dueDate": "2025-04-05",
+  "status": "unpaid"
+}
+5.3 Create invoice
+
+Endpoint
+
+POST /invoices
+
+Request Body
+
+{
+  "contract": {
+    "id": 1
+  },
   "amount": 1500000,
-  "dueDate": "2026-04-10",
+  "dueDate": "2025-05-05",
   "status": "unpaid"
 }
 
-### Cập nhật
+Response 200 OK
+
+{
+  "id": 3,
+  "contract": {
+    "id": 1
+  },
+  "amount": 1500000,
+  "dueDate": "2025-05-05",
+  "status": "unpaid"
+}
+5.4 Update invoice
+
+Endpoint
+
 PUT /invoices/{id}
 
-### Xóa
+Request Body
+
+{
+  "contract": {
+    "id": 2
+  },
+  "amount": 1200000,
+  "dueDate": "2025-06-05",
+  "status": "paid"
+}
+
+Response 200 OK
+
+{
+  "id": 3,
+  "contract": {
+    "id": 2
+  },
+  "amount": 1200000,
+  "dueDate": "2025-06-05",
+  "status": "paid"
+}
+5.5 Delete invoice
+
+Endpoint
+
 DELETE /invoices/{id}
 
-## 6. Payments API
+Response 204 No Content
 
-### Lấy danh sách thanh toán
+6. Payments API
+6.1 Get all payments
+
+Endpoint
+
 GET /payments
 
-### Lấy theo id
+Response 200 OK
+
+[
+  {
+    "id": 1,
+    "invoice": {
+      "id": 2
+    },
+    "paymentDate": "2025-04-02",
+    "amount": 1350000
+  }
+]
+6.2 Get payment by id
+
+Endpoint
+
 GET /payments/{id}
 
-### Tạo thanh toán
-POST /payments  
-Body:
+Response 200 OK
+
 {
-  "invoice": { "id": 1 },
-  "paymentDate": "2026-04-05",
+  "id": 1,
+  "invoice": {
+    "id": 2
+  },
+  "paymentDate": "2025-04-02",
+  "amount": 1350000
+}
+6.3 Create payment
+
+Endpoint
+
+POST /payments
+
+Request Body
+
+{
+  "invoice": {
+    "id": 1
+  },
+  "paymentDate": "2025-04-10",
   "amount": 1500000
 }
 
-### Cập nhật
+Response 200 OK
+
+{
+  "id": 3,
+  "invoice": {
+    "id": 1
+  },
+  "paymentDate": "2025-04-10",
+  "amount": 1500000
+}
+6.4 Update payment
+
+Endpoint
+
 PUT /payments/{id}
 
-### Xóa
+Request Body
+
+{
+  "invoice": {
+    "id": 2
+  },
+  "paymentDate": "2025-04-12",
+  "amount": 1200000
+}
+
+Response 200 OK
+
+{
+  "id": 3,
+  "invoice": {
+    "id": 2
+  },
+  "paymentDate": "2025-04-12",
+  "amount": 1200000
+}
+6.5 Delete payment
+
+Endpoint
+
 DELETE /payments/{id}
 
-## Ghi chú
-- Dữ liệu gửi lên dạng JSON
-- Dùng Postman để test API
-- Các quan hệ sử dụng id để liên kết
+Response 204 No Content
+
+Notes
+All requests and responses use JSON.
+For foreign key relationships, send nested objects with id only.
+Example: "room": { "id": 1 }
+Example: "tenant": { "id": 1 }
+Example: "contract": { "id": 1 }
+Example: "invoice": { "id": 1 }
