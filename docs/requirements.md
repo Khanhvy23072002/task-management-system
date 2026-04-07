@@ -37,7 +37,7 @@
 ## 4. Công Nghệ Sử Dụng
 - Backend: Spring Boot
 - Database: PostgreSQL
-- Frontend: Thymeleaf
+- Frontend: React
 - Version Control : Git / Github
 - API Testing : Postman
 ## 5. Phân Công Công Việc
