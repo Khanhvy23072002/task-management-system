@@ -13,7 +13,7 @@ Mục tiêu là giúp chủ trọ hoặc ban quản lý dễ dàng theo dõi tì
 
 ## Công nghệ sử dụng
 - Backend: Spring Boot
-- Frontend: Thymeleaf
+- Frontend : React
 - Database: PostgreSQL
 - Version Control: Git / GitHub
 - API Testing: Postman
