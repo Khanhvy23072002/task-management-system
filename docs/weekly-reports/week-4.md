@@ -7,7 +7,7 @@
 ## 1. Công việc đã hoàn thành
 | Thành viên | MSSV | Công việc | Link Commit/PR |
 |------------|------|-----------|----------------|
-| Phan Khánh Vy | 2054050284 | Phân công nhiệm vụ cho các thành viên, theo dõi tiến độ thực hiện của nhóm , kiểm tra các commit trên repository |https://github.com/Khanhvy23072002/boarding-house-management-system/blob/14db3dd4fb854fdf70fa5f47531e1421d972b7b9/docs/weekly-reports/week-3.md |
+| Phan Khánh Vy | 2054050284 | Phân công nhiệm vụ cho các thành viên, theo dõi tiến độ thực hiện của nhóm , kiểm tra các commit trên repository |https://github.com/Khanhvy23072002/boarding-house-management-system/commit/bccaef1bdb7b40dd332627ac330e4b3b3c9e90bc |
 | Trịnh Chí Đông | 2351050033 | Đọc api-docs.md, mapping test cases với API (login,room,tenant) , Test một số API bằng Postman ( ưu tiên login ) , Cập nhật test-cases.xlsx |https://github.com/Khanhvy23072002/boarding-house-management-system/commit/47406bfda03762286406aada6e7627b7909caba7|
 | Nguyễn Cao Hữu | 2354050050  |Hoàn thiện CRUD API cho các module: User, Room, Tenant, Contract, Kết nối database theo thiết kế, Test API bằng Postman và fix lỗi, Cập nhật tài liệu api-docs.md (endpoint,request, response) |https://github.com/Khanhvy23072002/boarding-house-management-system/commit/c888834ddfe99f6fee8b2fc802360204c0a3873c|
 | Nguyễn Thụy Anh Thư | 2054052066 | Hoàn thiện UI các màn hình chính, tích hợp API, hiển thị dữ liệu từ backend lên UI, xử lý các case cơ bản , điều chỉnh UI phù hợp với dữ liệu thực tế | |
