@@ -9,7 +9,7 @@ Testing activities include:
 - **Unit Testing**: Test individual backend components developed with Spring Boot.
 - **Integration Testing**: Verify the interaction between backend services and the PostgreSQL database.
 - **API Testing**: Use Postman to test REST APIs such as login, room management, tenant management, and invoice creation.
-- **UI Testing**: Test the Thymeleaf-based frontend interface to ensure it correctly interacts with backend APIs.
+- **UI Testing**: Test the React frontend interface to ensure it correctly interacts with backend APIs.
 - **Manual Testing**: Perform manual testing for core system features to ensure usability and correctness.
 
 ---
@@ -61,7 +61,7 @@ The following core features will be tested:
 | Component | Technology |
 |----------|------------|
 | Backend | Spring Boot |
-| Frontend | Thymeleaf |
+| Frontend | React |
 | Database | PostgreSQL |
 | API Testing Tool | Postman |
 | Operating System | Windows |
