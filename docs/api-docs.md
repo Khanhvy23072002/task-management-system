@@ -743,229 +743,27 @@ DELETE /invoices/{id}
 
 Response 204 No Content
 
-6. Payments API
-6.1 Get all payments
+## 6. Dashboard API
 
-Endpoint
-
-GET /payments
-
-Response 200 OK
-
-[
-    {
-        "amount": 1350000.0,
-        "id": 1,
-        "invoice": {
-            "amount": 1350000.0,
-            "contract": {
-                "endDate": "2025-11-30",
-                "id": 2,
-                "room": {
-                    "capacity": 3,
-                    "id": 2,
-                    "price": 1350000.0,
-                    "roomNumber": "P102",
-                    "status": "occupied"
-                },
-                "startDate": "2025-03-01",
-                "tenant": {
-                    "email": "lannt@gmail.com",
-                    "id": 2,
-                    "name": "Nguyen Thi Lan",
-                    "phone": "0903345678",
-                    "room": {
-                        "capacity": 3,
-                        "id": 2,
-                        "price": 1350000.0,
-                        "roomNumber": "P102",
-                        "status": "occupied"
-                    }
-                }
-            },
-            "dueDate": "2025-04-05",
-            "id": 2,
-            "status": "paid"
-        },
-        "paymentDate": "2025-04-02"
-    },
-    {
-        "amount": 500000.0,
-        "id": 2,
-        "invoice": {
-            "amount": 1350000.0,
-            "contract": {
-                "endDate": "2025-12-10",
-                "id": 1,
-                "room": {
-                    "capacity": 3,
-                    "id": 2,
-                    "price": 1350000.0,
-                    "roomNumber": "P102",
-                    "status": "occupied"
-                },
-                "startDate": "2025-02-10",
-                "tenant": {
-                    "email": "tuanpm@gmail.com",
-                    "id": 1,
-                    "name": "Pham Minh Tuan",
-                    "phone": "0914567823",
-                    "room": {
-                        "capacity": 3,
-                        "id": 2,
-                        "price": 1350000.0,
-                        "roomNumber": "P102",
-                        "status": "occupied"
-                    }
-                }
-            },
-            "dueDate": "2025-04-05",
-            "id": 1,
-            "status": "unpaid"
-        },
-        "paymentDate": "2025-04-06"
-    },
-    {
-        "amount": 1200000.0,
-        "id": 3,
-        "invoice": {
-            "amount": 1200000.0,
-            "contract": {
-                "endDate": "2025-09-15",
-                "id": 3,
-                "room": {
-                    "capacity": 2,
-                    "id": 3,
-                    "price": 1200000.0,
-                    "roomNumber": "P201",
-                    "status": "available"
-                },
-                "startDate": "2025-01-15",
-                "tenant": {
-                    "email": "baohoang@gmail.com",
-                    "id": 3,
-                    "name": "Hoang Gia Bao",
-                    "phone": "0938765432",
-                    "room": {
-                        "capacity": 2,
-                        "id": 3,
-                        "price": 1200000.0,
-                        "roomNumber": "P201",
-                        "status": "available"
-                    }
-                }
-            },
-            "dueDate": "2025-04-10",
-            "id": 3,
-            "status": "unpaid"
-        },
-        "paymentDate": "2025-04-09"
-    }
-]
-6.2 Get payment by id
-
-Endpoint
-
-GET /payments/{id}
+### 6.1 Get dashboard summary
+**Endpoint**
+```http
+GET /dashboard
 
 Response 200 OK
 
 {
-    "amount": 1350000.0,
-    "id": 1,
-    "invoice": {
-        "amount": 1350000.0,
-        "contract": {
-            "endDate": "2025-11-30",
-            "id": 2,
-            "room": {
-                "capacity": 3,
-                "id": 2,
-                "price": 1350000.0,
-                "roomNumber": "P102",
-                "status": "occupied"
-            },
-            "startDate": "2025-03-01",
-            "tenant": {
-                "email": "lannt@gmail.com",
-                "id": 2,
-                "name": "Nguyen Thi Lan",
-                "phone": "0903345678",
-                "room": {
-                    "capacity": 3,
-                    "id": 2,
-                    "price": 1350000.0,
-                    "roomNumber": "P102",
-                    "status": "occupied"
-                }
-            }
-        },
-        "dueDate": "2025-04-05",
-        "id": 2,
-        "status": "paid"
-    },
-    "paymentDate": "2025-04-02"
+  "totalUsers": 3,
+  "totalRooms": 3,
+  "totalTenants": 3,
+  "totalContracts": 3,
+  "totalInvoices": 3,
+  "availableRooms": 2,
+  "occupiedRooms": 1,
+  "unpaidInvoices": 2,
+  "paidInvoices": 1
 }
-6.3 Create payment
-
 Endpoint
-
-POST /payments
-
-Request Body
-
-{
-  "invoice": {
-    "id": 1
-  },
-  "paymentDate": "2025-04-10",
-  "amount": 1500000
-}
-
-Response 200 OK
-
-{
-  "id": 4,
-  "invoice": {
-    "id": 1
-  },
-  "paymentDate": "2025-04-10",
-  "amount": 1500000
-}
-6.4 Update payment
-
-Endpoint
-
-PUT /payments/{id}
-
-Request Body
-
-{
-  "invoice": {
-    "id": 2
-  },
-  "paymentDate": "2025-04-12",
-  "amount": 1200000
-}
-
-Response 200 OK
-
-{
-  "id": 4,
-  "invoice": {
-    "id": 2
-  },
-  "paymentDate": "2025-04-12",
-  "amount": 1200000
-}
-6.5 Delete payment
-
-Endpoint
-
-DELETE /payments/{id}
-
-Response 204 No Content
-
 Notes
 All requests and responses use JSON.
 For foreign key relationships, send nested objects with id only.
