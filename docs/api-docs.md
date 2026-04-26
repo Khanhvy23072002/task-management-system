@@ -37,14 +37,6 @@ Response 200 OK
 "role": "admin"
 }
 
-Response 404 Not Found
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 404,
-"error": "Not Found",
-"message": "User not found with id: 99"
-}
-
 1.3 Create user
 
 Endpoint
@@ -121,14 +113,6 @@ Response 200 OK
 "capacity": 4,
 "price": 1400000,
 "status": "available"
-}
-
-Response 404 Not Found
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 404,
-"error": "Not Found",
-"message": "Room not found with id: 99"
 }
 
 2.3 Create room
@@ -217,14 +201,6 @@ Response 200 OK
 "room": {
 "id": 2
 }
-}
-
-Response 404 Not Found
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 404,
-"error": "Not Found",
-"message": "Tenant not found with id: 99"
 }
 
 3.3 Create tenant
@@ -329,14 +305,6 @@ Response 200 OK
 "endDate": "2025-12-10"
 }
 
-Response 404 Not Found
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 404,
-"error": "Not Found",
-"message": "Contract not found with id: 99"
-}
-
 4.3 Create contract
 
 Endpoint
@@ -439,14 +407,6 @@ Response 200 OK
 "status": "unpaid"
 }
 
-Response 404 Not Found
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 404,
-"error": "Not Found",
-"message": "Invoice not found with id: 99"
-}
-
 5.3 Create invoice
 
 Endpoint
@@ -539,14 +499,6 @@ Response 200 OK
 "amount": 1350000
 }
 
-Response 404 Not Found
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 404,
-"error": "Not Found",
-"message": "Payment not found with id: 99"
-}
-
 6.3 Create payment
 
 Endpoint
@@ -619,61 +571,4 @@ Response 200 OK
 "occupiedRooms": 1,
 "unpaidInvoices": 2,
 "paidInvoices": 1
-}
-
-7.2 Get recent activity
-
-Endpoint
-GET /dashboard/recent-activity
-
-Response 200 OK
-[
-{
-"type": "invoice",
-"message": "Invoice #3 created",
-"createdAt": "2025-04-01T10:30:00"
-},
-{
-"type": "contract",
-"message": "Contract #2 updated",
-"createdAt": "2025-04-01T09:20:00"
-},
-{
-"type": "tenant",
-"message": "Tenant #1 added",
-"createdAt": "2025-04-01T08:10:00"
-}
-]
-
-8. Validation and Error Responses
-8.1 Validation error
-
-Response 400 Bad Request
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 400,
-"error": "Validation Error",
-"details": {
-"paymentDate": "Payment date is required"
-}
-}
-
-8.2 Business error
-
-Response 400 Bad Request
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 400,
-"error": "Bad Request",
-"message": "Room is not available"
-}
-
-8.3 Server error
-
-Response 500 Internal Server Error
-{
-"timestamp": "2025-04-01T10:00:00",
-"status": 500,
-"error": "Internal Server Error",
-"message": "Something went wrong"
 }
